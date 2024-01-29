@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.spacer {
+    flex: 1 1 auto !important;
+  }
+
+
+
+  
+
+  /* .sidenav-container {
+    height: 100vh;
+    display: flex;
+  }
+   */
+
+   
+/* Estilo para el contenedor del sidenav */
+.sidenav-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para el sidenav */
+/* mat-sidenav {
+  flex: 0 0 auto;
+} */
+
+/* Estilo para el botón al final de la pantalla */
+.sidenav-bottom-button {
+  position: fixed;
+  bottom: 5px; /* Ajusta la distancia desde la parte inferior según sea necesario */
+  /* right: 10px; */
+}
+
+
+mat-sidenav {
+  background-color: #f0f0f0; /* Ajusta según sea necesario */
+}

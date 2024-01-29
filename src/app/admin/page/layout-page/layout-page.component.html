@@ -1,44 +1,55 @@
-<mat-sidenav-container fullscreen>
-    <mat-sidenav #sidenav mode="push" [ngStyle]="{width:'250px'}">
-        <mat-toolbar>
-            <span>Menu</span>
-            <span class="spacer"></span>
-            <button mat-icon-button (click)="sidenav.toggle()">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-toolbar>
-
-        <!-- Menu -->
-        <mat-nav-list>
-            <mat-list-item 
-            *ngFor="let item of sidebarItems" 
-            [routerLink]="item.url"
-            (click)="sidenav.toggle()"
-            >
-            <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-                {{item.label}}
-            </mat-list-item>
-        </mat-nav-list>
-    </mat-sidenav>
-
-    <mat-toolbar color="primary">
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-
-        <span class="spacer"></span>
-
-        <button mat-button>
-            Logout
-            <!-- <mat-icon>close</mat-icon> -->
-        </button>
-
-    </mat-toolbar>
+<!-- <mat-sidenav-container class="sidenav-container"> -->
+<!-- <mat-sidenav #sidenav mode="side" [opened]="true" [ngStyle]="{width: sidebarWidth}">
+      <mat-nav-list>
+        <mat-list-item *ngFor="let item of sidebarItems" [routerLink]="item.url" (click)="sidenav.toggle()">
+          <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav> -->
 
 
-    <div class="container p-2">
-        <router-outlet></router-outlet>
+
+<!-- <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+  
+      <span class="spacer"></span>
+  
+      <button mat-button>
+        Logout
+      </button>
+    </mat-toolbar> -->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="spacer"></span>
+
+    <button mat-button>
+      Login
+    </button>
+  </mat-toolbar>
+
+  <div class="container p-2">
+    <router-outlet></router-outlet>
+  </div>
+
+  <mat-sidenav position="end" #sidenav mode="side" [opened]="true" [ngStyle]="{ width: sidebarWidth }"
+    autoFocus="false">
+    <mat-nav-list *ngFor="let item of sidebarItems" (click)="onSidenavItemClicked(item)">
+      <button mat-icon-button matTooltip="{{item.tooltip}}">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </button>
+    </mat-nav-list>
+    <div class="sidenav-bottom-button">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <!-- <mat-icon>close</mat-icon> -->
+        <i class="fas fa-close"></i> 
+      </button>
     </div>
-
-
+  </mat-sidenav>
 </mat-sidenav-container>
